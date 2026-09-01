@@ -1,7 +1,7 @@
-*.xlsx
-*.xls
-*.csv
+# Raw project datasets are included in this private repository.
+# Keep generated outputs and credentials excluded.
 outputs/
+*.zip
 __pycache__/
 *.pyc
 .venv/

@@ -1,0 +1,1108 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "sd-2026-07-01-price-forecast-775a0e85",
+  "run_id": "dry-run-7c3a3d4a5393",
+  "market_code": "SD",
+  "market_date": "2026-07-01",
+  "timezone": "Asia/Shanghai",
+  "model": {
+    "id": "price-forecast",
+    "name": "山东日前电价预测（天气+电源出力增强）",
+    "version": "weather-power-price-optimized-v1.0.0",
+    "selected_model": "random_forest_weather_power"
+  },
+  "data_snapshot": {
+    "version": "sd-weather-power-2026h1-v1",
+    "created_at": "2026-08-19T07:48:02.386871+00:00",
+    "source_versions": {
+      "prices": "sd-spot-2026h1-v1",
+      "weather_forecast": "sd-gfs-weather-2026h1-v1",
+      "power_forecast": "sd-power-output-2026h1-v1"
+    },
+    "available_domains": [
+      "prices",
+      "weather_forecast",
+      "load_forecast_proxy",
+      "wind_forecast_proxy",
+      "pv_forecast_proxy",
+      "day_ahead_price"
+    ],
+    "missing_domains": [
+      "clearing_results",
+      "complete_settlement",
+      "congestion",
+      "day_ahead_declarations",
+      "deviation_assessment",
+      "manual_adjustments",
+      "market_rules",
+      "medium_long_term_positions",
+      "outages",
+      "real_time_declarations",
+      "real_time_price",
+      "retail_contracts",
+      "trading_limits",
+      "unit_status"
+    ],
+    "coverage": {
+      "price_rows": 4344,
+      "price_start": "2026-01-01",
+      "price_end": "2026-06-30",
+      "weather_rows": 4368,
+      "weather_start": "2026-01-01",
+      "weather_end": "2026-07-01",
+      "weather_complete_start": "2026-05-01",
+      "weather_complete_end": "2026-07-01",
+      "weather_complete_days": 62,
+      "weather_only_rows_available_for_forecast": 24,
+      "weather_missing_cells_in_price_history": 20158,
+      "weather_assumption": "Workbook contains GFS forecast values but no forecast publication timestamp; the supplied values are treated as available before the target market day.",
+      "power_files": [
+        "D:\\电力实习\\tmp\\zipcheck_final_20260819\\data\\山东省-电源出力-总览-电源出力-实际出力-（2026-01-01_2026-01-31）.xlsx",
+        "D:\\电力实习\\tmp\\zipcheck_final_20260819\\data\\山东省-电源出力-总览-电源出力-实际出力-（2026-02-01_2026-02-28）.xlsx",
+        "D:\\电力实习\\tmp\\zipcheck_final_20260819\\data\\山东省-电源出力-总览-电源出力-实际出力-（2026-03-01_2026-03-31）.xlsx",
+        "D:\\电力实习\\tmp\\zipcheck_final_20260819\\data\\山东省-电源出力-总览-电源出力-预测出力-（2026-04-01_2026-04-30）.xlsx",
+        "D:\\电力实习\\tmp\\zipcheck_final_20260819\\data\\山东省-电源出力-总览-电源出力-预测出力-（2026-05-01_2026-05-31）.xlsx",
+        "D:\\电力实习\\tmp\\zipcheck_final_20260819\\data\\山东省-电源出力-总览-电源出力-预测出力-（2026-06-01_2026-06-30）.xlsx"
+      ],
+      "power_rows_raw": 17376,
+      "power_rows_market_period": 4344,
+      "power_start": "2026-01-01",
+      "power_end": "2026-06-30",
+      "power_complete_days": 181,
+      "power_source_file_counts": {
+        "actual": 3,
+        "forecast": 3
+      },
+      "power_missing_cells_after_aggregation": 0,
+      "power_proxy_rows": 24
+    }
+  },
+  "backtest": {
+    "window_start": "2026-06-15",
+    "window_end": "2026-06-30",
+    "sample_count": 4344,
+    "mae_yuan_per_mwh": 62.0235531562503,
+    "rmse_yuan_per_mwh": 77.45750365223739,
+    "bias_yuan_per_mwh": 28.693983086934946,
+    "negative_price_recall": 1.0,
+    "extreme_high_price_recall": 1.0
+  },
+  "periods": [
+    {
+      "period": 1,
+      "datetime": "2026-07-01T01:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 374.3706576845491,
+        "p50": 443.0053363864837,
+        "p90": 511.6400150884183
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 2,
+      "datetime": "2026-07-01T02:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 454.4579954940085,
+        "p50": 523.0926741959431,
+        "p90": 591.7273528978777
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 3,
+      "datetime": "2026-07-01T03:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 468.44440760930047,
+        "p50": 537.0790863112351,
+        "p90": 605.7137650131697
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 4,
+      "datetime": "2026-07-01T04:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 474.34138278116563,
+        "p50": 542.9760614831002,
+        "p90": 611.6107401850348
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 5,
+      "datetime": "2026-07-01T05:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 486.6950715510069,
+        "p50": 555.3297502529415,
+        "p90": 623.9644289548761
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 6,
+      "datetime": "2026-07-01T06:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 476.938162879169,
+        "p50": 545.5728415811036,
+        "p90": 614.2075202830382
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 7,
+      "datetime": "2026-07-01T07:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 257.7569634022576,
+        "p50": 326.3916421041922,
+        "p90": 395.0263208061268
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 8,
+      "datetime": "2026-07-01T08:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 247.53753261526694,
+        "p50": 316.1722113172015,
+        "p90": 384.8068900191361
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 9,
+      "datetime": "2026-07-01T09:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 181.35369842048001,
+        "p50": 249.9883771224146,
+        "p90": 318.6230558243492
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 10,
+      "datetime": "2026-07-01T10:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 97.5039190522557,
+        "p50": 166.13859775419027,
+        "p90": 234.77327645612485
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 11,
+      "datetime": "2026-07-01T11:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 65.27049765869558,
+        "p50": 133.90517636063015,
+        "p90": 202.53985506256475
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 12,
+      "datetime": "2026-07-01T12:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 3.0857937598166814,
+        "p50": 71.72047246175126,
+        "p90": 140.35515116368583
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 13,
+      "datetime": "2026-07-01T13:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": -30.92498893956732,
+        "p50": 37.709689762367255,
+        "p90": 106.34436846430185
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P10_CROSSED_ZERO"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 14,
+      "datetime": "2026-07-01T14:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": -1.272260187948575,
+        "p50": 67.362418513986,
+        "p90": 135.99709721592058
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P10_CROSSED_ZERO"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 15,
+      "datetime": "2026-07-01T15:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 42.61473693118232,
+        "p50": 111.2494156331169,
+        "p90": 179.8840943350515
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 16,
+      "datetime": "2026-07-01T16:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 185.88424610807022,
+        "p50": 254.5189248100048,
+        "p90": 323.15360351193937
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 17,
+      "datetime": "2026-07-01T17:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 291.25674561865253,
+        "p50": 359.8914243205871,
+        "p90": 428.5261030225217
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "NO_THRESHOLD_RISK"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 18,
+      "datetime": "2026-07-01T18:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 460.63096872832045,
+        "p50": 529.2656474302551,
+        "p90": 597.9003261321897
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 19,
+      "datetime": "2026-07-01T19:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 519.9871803729717,
+        "p50": 588.6218590749063,
+        "p90": 657.2565377768409
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 20,
+      "datetime": "2026-07-01T20:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 523.2854872444798,
+        "p50": 591.9201659464144,
+        "p90": 660.554844648349
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 21,
+      "datetime": "2026-07-01T21:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 517.7644817033544,
+        "p50": 586.399160405289,
+        "p90": 655.0338391072236
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 22,
+      "datetime": "2026-07-01T22:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 526.292295271175,
+        "p50": 594.9269739731096,
+        "p90": 663.5616526750442
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 23,
+      "datetime": "2026-07-01T23:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 525.4683801485198,
+        "p50": 594.1030588504544,
+        "p90": 662.737737552389
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    },
+    {
+      "period": 24,
+      "datetime": "2026-07-02T00:00:00+08:00",
+      "day_ahead_price_yuan_per_mwh": {
+        "p10": 527.6182598106174,
+        "p50": 596.252938512552,
+        "p90": 664.8876172144866
+      },
+      "real_time_price_yuan_per_mwh": {
+        "p10": null,
+        "p50": null,
+        "p90": null
+      },
+      "spread_day_ahead_minus_real_time_yuan_per_mwh": null,
+      "negative_price_risk": {
+        "flagged": false,
+        "probability": null,
+        "level": "LOW",
+        "method": "DAY_AHEAD_P10_CROSSED_ZERO"
+      },
+      "high_price_risk": {
+        "flagged": true,
+        "probability": null,
+        "level": "HIGH",
+        "method": "DAY_AHEAD_P90_EXCEEDED_500"
+      },
+      "risk_reason_codes": [
+        "DAY_AHEAD_P90_EXCEEDED_500"
+      ],
+      "confidence": null,
+      "data_completeness": "PARTIAL",
+      "strategy_suggestion": {
+        "action": "HOLD",
+        "volume_mwh": 0,
+        "price_yuan_per_mwh": null,
+        "confidence": null,
+        "reason_codes": [
+          "STRATEGY_INPUTS_INCOMPLETE",
+          "REAL_TIME_PRICE_NOT_MODELED"
+        ]
+      }
+    }
+  ],
+  "strategy_ready": false,
+  "warnings": [
+    "REAL_TIME_PRICE_NOT_MODELED",
+    "WEATHER_FORECAST_PUBLICATION_TIMESTAMP_MISSING",
+    "POWER_FORECAST_PUBLICATION_TIMESTAMP_MISSING",
+    "STRATEGY_INPUTS_INCOMPLETE_HOLD_ONLY",
+    "EXECUTION_DISABLED"
+  ]
+}

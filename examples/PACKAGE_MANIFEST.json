@@ -1,0 +1,97 @@
+{
+  "package_version": "weather-power-api-v1.0.0",
+  "created_at": "2026-08-19T15:46:58.8114504+08:00",
+  "entrypoint": "platform_v1_weather_power_adapter.py",
+  "files": [
+    {
+      "path": "forecast.csv",
+      "size_bytes": 30575,
+      "sha256": "822175c7574a3b91ec6239ea88e69de2c3e1f84bdec81aea3299ea629e0fe2e4"
+    },
+    {
+      "path": "model_card.json",
+      "size_bytes": 3127,
+      "sha256": "22c7b0017e3c3fb56abc483f54fc086dd581d7e750d85b742abe40355b339943"
+    },
+    {
+      "path": "model_comparison.json",
+      "size_bytes": 28039,
+      "sha256": "1b930d268fdb4392629df330ef65d38d2d8110312257ffb8abbcad2b1e1dce92"
+    },
+    {
+      "path": "platform_v1_weather_power_adapter.py",
+      "size_bytes": 11657,
+      "sha256": "e73c07c3a182732ba7618ed8ad389b586849d2cbd65fe4b64c4546d33e03bcd5"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 3600,
+      "sha256": "d533ff5ead12709fc85da31a54e65ffa77e7002538b3d2760761230c4d71064a"
+    },
+    {
+      "path": "requirements.txt",
+      "size_bytes": 68,
+      "sha256": "092d587ce2090e8deb24e3b3c04baed261c269ebffafc1094a02d50bd41e4e08"
+    },
+    {
+      "path": "weather_price_forecast_optimized.joblib",
+      "size_bytes": 11169637,
+      "sha256": "b3f3e32d3b1fcffaa63eb3279d688ae71c4f896ef70f25917fb32d2cac63a10c"
+    },
+    {
+      "path": "weather_price_forecast_optimized.py",
+      "size_bytes": 29521,
+      "sha256": "9fd8f2525ae1768db9321002d3ba1ec96b394fa9f5ddbd44a581e9eee12d6526"
+    },
+    {
+      "path": "data\\分时天气预报-自定义-山东省-2026-01-01-2026-07-01.xlsx",
+      "size_bytes": 166722,
+      "sha256": "c2d62d49b5f84d176a06320ef1a0c72c7989d20ff52235a77b8157936aba4970"
+    },
+    {
+      "path": "data\\山东省-电源出力-总览-电源出力-实际出力-（2026-01-01_2026-01-31）.xlsx",
+      "size_bytes": 1283949,
+      "sha256": "633f9d5d4a3d67e5c441b6bbf496149fbdba08d6478a08f808da26ce818ee87f"
+    },
+    {
+      "path": "data\\山东省-电源出力-总览-电源出力-实际出力-（2026-02-01_2026-02-28）.xlsx",
+      "size_bytes": 1158908,
+      "sha256": "06004d24c97e0e4d9cfedd3011ea3a01bd77c52cf7c8c421c46f5eaeeb293cfa"
+    },
+    {
+      "path": "data\\山东省-电源出力-总览-电源出力-实际出力-（2026-03-01_2026-03-31）.xlsx",
+      "size_bytes": 1284238,
+      "sha256": "106d60a760cf8b5f33903f97a1553ad2db8f4bfd3d77e34cdeb72ca0b1a44983"
+    },
+    {
+      "path": "data\\山东省-电源出力-总览-电源出力-预测出力-（2026-04-01_2026-04-30）.xlsx",
+      "size_bytes": 1183219,
+      "sha256": "6f8537d5bd3e4b6b90b3cd958350d631a9033f9313815c3d47d60e7bae14e70a"
+    },
+    {
+      "path": "data\\山东省-电源出力-总览-电源出力-预测出力-（2026-05-01_2026-05-31）.xlsx",
+      "size_bytes": 1223823,
+      "sha256": "9c5f50be9deb311f87579aa7c96aa6e8ae5bbded7a9c187dad63171dedb6ef1b"
+    },
+    {
+      "path": "data\\山东省-电源出力-总览-电源出力-预测出力-（2026-06-01_2026-06-30）.xlsx",
+      "size_bytes": 1185812,
+      "sha256": "2ac01e36ef8d6ca8dbe99a9724d96e2f82ec2dd613eb5ef477f6fa6c117a5a1b"
+    },
+    {
+      "path": "data\\山东省-现货价格-数据明细（2026-01-01_2026-06-30.xlsx",
+      "size_bytes": 901564,
+      "sha256": "2da0530e5d94bfc363acbea5a717e33317ea4b17da11720f0e6ab65ae01fdfe8"
+    },
+    {
+      "path": "examples\\forecast_strategy_request.example.json",
+      "size_bytes": 1772,
+      "sha256": "ceb67d43013cba0641e98b5e833ed01a4195bff7c7457d047e56584dcb1495cf"
+    },
+    {
+      "path": "examples\\forecast-strategy-result-v1.weather-power.dry-run.json",
+      "size_bytes": 32523,
+      "sha256": "66ff2bca22c55f5400df846371604634434ba92acadae638e3fddf3a529d4324"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0-draft",
+  "request_id": "sd-20260807-001",
+  "market": "SD_SPOT",
+  "market_date": "2026-08-07",
+  "timezone": "Asia/Shanghai",
+  "model": {
+    "id": "price-forecast",
+    "version": "1.0-adapter"
+  },
+  "inputs": {
+    "periods": [
+      {
+        "period": 1,
+        "start_time": "2026-08-07T00:00:00+08:00",
+        "load_forecast_mwh": null,
+        "day_ahead_price_yuan_per_mwh": null,
+        "real_time_price_yuan_per_mwh": null,
+        "weather": {
+          "temperature_c": null,
+          "humidity_pct": null,
+          "wind_speed_mps": null,
+          "solar_irradiance_wm2": null
+        },
+        "market_context": {
+          "renewable_forecast_mw": null,
+          "unit_availability_mw": null,
+          "congestion_flag": null
+        }
+      }
+    ],
+    "positions": {
+      "medium_long_term_mwh": null,
+      "retail_obligation_mwh": null
+    },
+    "constraints": {
+      "max_volume_mwh": null,
+      "max_price_yuan_per_mwh": null,
+      "max_daily_loss_yuan": null,
+      "manual_review_required": true
+    }
+  },
+  "outputs": {
+    "periods": [
+      {
+        "period": 1,
+        "price_forecast": {
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "spread_forecast_yuan_per_mwh": null,
+        "risk_flags": [],
+        "strategy_suggestion": {
+          "action": "HOLD",
+          "volume_mwh": 0,
+          "price_yuan_per_mwh": null,
+          "confidence": 0,
+          "reason_codes": []
+        }
+      }
+    ],
+    "quality": {
+      "data_complete": false,
+      "model_in_scope": false,
+      "warnings": ["DRAFT_CONTRACT_NOT_FOR_LIVE_TRADING"]
+    },
+    "review": {
+      "required": true,
+      "reviewer": null,
+      "decision": "PENDING"
+    }
+  }
+}
