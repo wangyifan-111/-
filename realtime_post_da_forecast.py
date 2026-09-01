@@ -329,7 +329,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Post-DA real-time price forecast")
     parser.add_argument("--price", type=Path, default=base.PRICE_DEFAULT)
     parser.add_argument("--weather", type=Path, default=base.WEATHER_DEFAULT)
-    parser.add_argument("--power-dir", type=Path, default=base.ROOT)
+    parser.add_argument("--power-dir", type=Path, default=base.DATA_ROOT)
     parser.add_argument("--calibration-start", default="2026-06-08")
     parser.add_argument("--backtest-start", default="2026-06-15")
     parser.add_argument("--backtest-end", default="2026-06-30")

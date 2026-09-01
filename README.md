@@ -36,4 +36,12 @@ python integrated_price_forecast.py --backend xgboost --backtest-start 2026-06-1
 
 结果写入 `outputs/repro_xgboost/`，其中 `run_summary.json` 保存 MAE/RMSE 等指标，`walk_forward_backtest.csv` 保存逐时预测和真实值。由于训练包含滚动窗口，首次运行可能需要数分钟。
 
+上述命令复现的是盘前一体化预测口径。本仓库此前记录的较低实时误差（约 `77.59` 元/MWh）属于“日前出清曲线已公布后”的实时预测口径，允许把当日完整日前曲线作为输入；它不能与盘前口径直接比较。相应复现命令为：
+
+```powershell
+python realtime_post_da_forecast.py --backtest-start 2026-06-15 --backtest-end 2026-06-30 --output-dir outputs/repro_post_da
+```
+
+已于 2026-09-01 用本仓库数据完整验证：该命令在 384 个时段上的最佳单模型为 `rt_direct_lightgbm_l1_pred`，实时价格 MAE 为 `77.593652 元/MWh`，RMSE 为 `115.810585 元/MWh`。完整指标和逐时预测分别见 `outputs/repro_post_da/summary.json` 与 `outputs/repro_post_da/backtest_predictions.csv`。
+
 测试区间为 2026-06-15 至 2026-06-30。日前出清后 LightGBM-L1 实时价格预测 MAE 为 77.59 元/MWh；该结果属于探索性回测，上线前应使用后续未见日期复核。
