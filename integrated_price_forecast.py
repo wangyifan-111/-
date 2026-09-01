@@ -93,8 +93,9 @@ except Exception:  # pragma: no cover - environment dependent.
 
 
 ROOT = Path(__file__).resolve().parent
-PRICE_DEFAULT = ROOT / "山东省-现货价格-数据明细（2026-01-01_2026-06-30.xlsx"
-WEATHER_DEFAULT = ROOT / "分时天气预报-自定义-山东省-2026-01-01-2026-07-01.xlsx"
+DATA_ROOT = ROOT / "data"
+PRICE_DEFAULT = DATA_ROOT / "山东省-现货价格-数据明细（2026-01-01_2026-06-30.xlsx"
+WEATHER_DEFAULT = DATA_ROOT / "分时天气预报-自定义-山东省-2026-01-01-2026-07-01.xlsx"
 POWER_GLOB = "山东省-电源出力*.xlsx"
 LAGS = (24, 48, 72, 168, 336)
 SEQUENCE_WINDOW = 24
@@ -824,7 +825,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Integrated DA/RT/spread forecast with TCN residual and Conformal intervals")
     parser.add_argument("--price", type=Path, default=PRICE_DEFAULT)
     parser.add_argument("--weather", type=Path, default=WEATHER_DEFAULT)
-    parser.add_argument("--power-dir", type=Path, default=ROOT)
+    parser.add_argument("--power-dir", type=Path, default=DATA_ROOT)
     parser.add_argument("--forecast-date", default="2026-07-01")
     parser.add_argument("--backtest-start", default="2026-06-15")
     parser.add_argument("--backtest-end", default="2026-06-30")

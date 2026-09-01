@@ -28,4 +28,12 @@
 
 先安装依赖，再按报告中的数据路径运行 `src/` 下的脚本。部分深度学习模型需要 PyTorch；LightGBM/XGBoost 版本应与 `requirements_integrated_price_forecast.txt` 保持一致。
 
+从仓库根目录复现主结果（固定测试区间、随机种子和数据目录）：
+
+```powershell
+python integrated_price_forecast.py --backend xgboost --backtest-start 2026-06-15 --backtest-end 2026-06-30 --forecast-date 2026-07-01 --output-dir outputs/repro_xgboost
+```
+
+结果写入 `outputs/repro_xgboost/`，其中 `run_summary.json` 保存 MAE/RMSE 等指标，`walk_forward_backtest.csv` 保存逐时预测和真实值。由于训练包含滚动窗口，首次运行可能需要数分钟。
+
 测试区间为 2026-06-15 至 2026-06-30。日前出清后 LightGBM-L1 实时价格预测 MAE 为 77.59 元/MWh；该结果属于探索性回测，上线前应使用后续未见日期复核。
