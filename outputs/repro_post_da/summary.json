@@ -1,0 +1,395 @@
+{
+  "scenario": "post-day-ahead clearing real-time forecast",
+  "known_at_prediction_time": [
+    "complete target-day day-ahead clearing price curve",
+    "target-day weather forecast",
+    "target-day power output forecast",
+    "historical DA, RT and RT-minus-DA spread through the previous market day"
+  ],
+  "models": [
+    "lightgbm_l1",
+    "xgboost_l1",
+    "xgboost_l2",
+    "extra_trees",
+    "ridge"
+  ],
+  "rolling_meta_window_days": 7,
+  "backtest": {
+    "rt_from_spread_lightgbm_l1_pred": {
+      "mae_yuan_per_mwh": 77.6811704178925,
+      "rmse_yuan_per_mwh": 119.00722617337117,
+      "bias_yuan_per_mwh": -1.0426001010448622,
+      "sample_count": 384
+    },
+    "rt_from_spread_xgboost_l1_pred": {
+      "mae_yuan_per_mwh": 78.16186759378824,
+      "rmse_yuan_per_mwh": 117.97007190948811,
+      "bias_yuan_per_mwh": -1.7999957142341891,
+      "sample_count": 384
+    },
+    "rt_from_spread_xgboost_l2_pred": {
+      "mae_yuan_per_mwh": 79.95275803088272,
+      "rmse_yuan_per_mwh": 118.95314357162177,
+      "bias_yuan_per_mwh": -2.506542080371332,
+      "sample_count": 384
+    },
+    "rt_from_spread_extra_trees_pred": {
+      "mae_yuan_per_mwh": 82.41288168184879,
+      "rmse_yuan_per_mwh": 118.93861720867392,
+      "bias_yuan_per_mwh": 4.512777620482571,
+      "sample_count": 384
+    },
+    "rt_from_spread_ridge_pred": {
+      "mae_yuan_per_mwh": 86.52915072283035,
+      "rmse_yuan_per_mwh": 119.58012283964734,
+      "bias_yuan_per_mwh": -6.292367036366414,
+      "sample_count": 384
+    },
+    "rt_direct_lightgbm_l1_pred": {
+      "mae_yuan_per_mwh": 77.5936522587789,
+      "rmse_yuan_per_mwh": 115.81058521210097,
+      "bias_yuan_per_mwh": 1.1722278301433426,
+      "sample_count": 384
+    },
+    "rt_direct_xgboost_l1_pred": {
+      "mae_yuan_per_mwh": 80.03023922265724,
+      "rmse_yuan_per_mwh": 117.24405755758069,
+      "bias_yuan_per_mwh": -0.5407703837867203,
+      "sample_count": 384
+    },
+    "rt_direct_xgboost_l2_pred": {
+      "mae_yuan_per_mwh": 80.490116198839,
+      "rmse_yuan_per_mwh": 115.22573907460463,
+      "bias_yuan_per_mwh": -5.973830256341646,
+      "sample_count": 384
+    },
+    "rt_direct_extra_trees_pred": {
+      "mae_yuan_per_mwh": 81.29091081994046,
+      "rmse_yuan_per_mwh": 116.02756445987535,
+      "bias_yuan_per_mwh": 4.37561351045213,
+      "sample_count": 384
+    },
+    "rt_direct_ridge_pred": {
+      "mae_yuan_per_mwh": 93.406217537999,
+      "rmse_yuan_per_mwh": 126.42214441404371,
+      "bias_yuan_per_mwh": 8.92197981421368,
+      "sample_count": 384
+    },
+    "rt_global_ensemble_pred": {
+      "mae_yuan_per_mwh": 80.63647811395815,
+      "rmse_yuan_per_mwh": 119.39605967020113,
+      "bias_yuan_per_mwh": -1.9625769751961712,
+      "sample_count": 384
+    },
+    "rt_global_bias_corrected_pred": {
+      "mae_yuan_per_mwh": 80.99477807055467,
+      "rmse_yuan_per_mwh": 119.76804937814654,
+      "bias_yuan_per_mwh": -4.700681116776665,
+      "sample_count": 384
+    },
+    "rt_segment_ensemble_pred": {
+      "mae_yuan_per_mwh": 80.96046750620467,
+      "rmse_yuan_per_mwh": 118.62519218364709,
+      "bias_yuan_per_mwh": -0.45673631068657805,
+      "sample_count": 384
+    },
+    "rt_segment_bias_corrected_pred": {
+      "mae_yuan_per_mwh": 82.68241631569515,
+      "rmse_yuan_per_mwh": 120.47557545987678,
+      "bias_yuan_per_mwh": -4.066765738446697,
+      "sample_count": 384
+    }
+  },
+  "by_segment": {
+    "night": {
+      "rt_from_spread_lightgbm_l1_pred": {
+        "mae_yuan_per_mwh": 36.24052695453912,
+        "rmse_yuan_per_mwh": 52.36527696202222,
+        "bias_yuan_per_mwh": -5.92476630457831,
+        "sample_count": 96
+      },
+      "rt_from_spread_xgboost_l1_pred": {
+        "mae_yuan_per_mwh": 35.14802228282144,
+        "rmse_yuan_per_mwh": 51.77755009859992,
+        "bias_yuan_per_mwh": -4.137153594809277,
+        "sample_count": 96
+      },
+      "rt_from_spread_xgboost_l2_pred": {
+        "mae_yuan_per_mwh": 35.344183374524114,
+        "rmse_yuan_per_mwh": 52.965820052894195,
+        "bias_yuan_per_mwh": -5.760136148015661,
+        "sample_count": 96
+      },
+      "rt_from_spread_extra_trees_pred": {
+        "mae_yuan_per_mwh": 38.92263493537415,
+        "rmse_yuan_per_mwh": 56.424446474230464,
+        "bias_yuan_per_mwh": -4.374799221088437,
+        "sample_count": 96
+      },
+      "rt_from_spread_ridge_pred": {
+        "mae_yuan_per_mwh": 45.01990235507004,
+        "rmse_yuan_per_mwh": 56.653435613751654,
+        "bias_yuan_per_mwh": -8.055746350859355,
+        "sample_count": 96
+      },
+      "rt_direct_lightgbm_l1_pred": {
+        "mae_yuan_per_mwh": 36.10443610265471,
+        "rmse_yuan_per_mwh": 48.77254415872541,
+        "bias_yuan_per_mwh": -5.750097276609094,
+        "sample_count": 96
+      },
+      "rt_direct_xgboost_l1_pred": {
+        "mae_yuan_per_mwh": 37.355050052007044,
+        "rmse_yuan_per_mwh": 51.92339429362511,
+        "bias_yuan_per_mwh": -5.337794009526575,
+        "sample_count": 96
+      },
+      "rt_direct_xgboost_l2_pred": {
+        "mae_yuan_per_mwh": 36.84192474365235,
+        "rmse_yuan_per_mwh": 53.15561629783646,
+        "bias_yuan_per_mwh": -5.299823705037439,
+        "sample_count": 96
+      },
+      "rt_direct_extra_trees_pred": {
+        "mae_yuan_per_mwh": 37.22239654931973,
+        "rmse_yuan_per_mwh": 49.773215317933946,
+        "bias_yuan_per_mwh": -1.697157289399071,
+        "sample_count": 96
+      },
+      "rt_direct_ridge_pred": {
+        "mae_yuan_per_mwh": 49.94813378651232,
+        "rmse_yuan_per_mwh": 61.956508037918695,
+        "bias_yuan_per_mwh": -3.8053142863506486,
+        "sample_count": 96
+      },
+      "rt_global_ensemble_pred": {
+        "mae_yuan_per_mwh": 35.7501849037383,
+        "rmse_yuan_per_mwh": 50.6739183343934,
+        "bias_yuan_per_mwh": -4.973171495277888,
+        "sample_count": 96
+      },
+      "rt_global_bias_corrected_pred": {
+        "mae_yuan_per_mwh": 36.06464440782711,
+        "rmse_yuan_per_mwh": 50.8748550377327,
+        "bias_yuan_per_mwh": -7.711275636858383,
+        "sample_count": 96
+      },
+      "rt_segment_ensemble_pred": {
+        "mae_yuan_per_mwh": 38.05862630248692,
+        "rmse_yuan_per_mwh": 53.65873477082384,
+        "bias_yuan_per_mwh": -5.112329042205463,
+        "sample_count": 96
+      },
+      "rt_segment_bias_corrected_pred": {
+        "mae_yuan_per_mwh": 38.71877062177408,
+        "rmse_yuan_per_mwh": 53.73787294882503,
+        "bias_yuan_per_mwh": -4.245619065649065,
+        "sample_count": 96
+      }
+    },
+    "solar": {
+      "rt_from_spread_lightgbm_l1_pred": {
+        "mae_yuan_per_mwh": 127.34725321189282,
+        "rmse_yuan_per_mwh": 169.9852928250641,
+        "bias_yuan_per_mwh": -10.983418058464135,
+        "sample_count": 160
+      },
+      "rt_from_spread_xgboost_l1_pred": {
+        "mae_yuan_per_mwh": 129.1860319960594,
+        "rmse_yuan_per_mwh": 168.78149735688666,
+        "bias_yuan_per_mwh": -12.756279549968246,
+        "sample_count": 160
+      },
+      "rt_from_spread_xgboost_l2_pred": {
+        "mae_yuan_per_mwh": 132.46846529990734,
+        "rmse_yuan_per_mwh": 169.39416240445385,
+        "bias_yuan_per_mwh": -10.942174880799655,
+        "sample_count": 160
+      },
+      "rt_from_spread_extra_trees_pred": {
+        "mae_yuan_per_mwh": 131.91008089851192,
+        "rmse_yuan_per_mwh": 167.78088415328253,
+        "bias_yuan_per_mwh": 3.515037209226196,
+        "sample_count": 160
+      },
+      "rt_from_spread_ridge_pred": {
+        "mae_yuan_per_mwh": 133.364172561386,
+        "rmse_yuan_per_mwh": 167.51118341622242,
+        "bias_yuan_per_mwh": -14.248130609728424,
+        "sample_count": 160
+      },
+      "rt_direct_lightgbm_l1_pred": {
+        "mae_yuan_per_mwh": 122.71635097002965,
+        "rmse_yuan_per_mwh": 163.83446794731185,
+        "bias_yuan_per_mwh": 0.7422757623937397,
+        "sample_count": 160
+      },
+      "rt_direct_xgboost_l1_pred": {
+        "mae_yuan_per_mwh": 126.65148228943721,
+        "rmse_yuan_per_mwh": 165.32534959793594,
+        "bias_yuan_per_mwh": -4.241053847388181,
+        "sample_count": 160
+      },
+      "rt_direct_xgboost_l2_pred": {
+        "mae_yuan_per_mwh": 128.80842183375657,
+        "rmse_yuan_per_mwh": 163.0941155706943,
+        "bias_yuan_per_mwh": -12.751863129135966,
+        "sample_count": 160
+      },
+      "rt_direct_extra_trees_pred": {
+        "mae_yuan_per_mwh": 131.81468657351192,
+        "rmse_yuan_per_mwh": 164.88629100630686,
+        "bias_yuan_per_mwh": 0.05160888073981127,
+        "sample_count": 160
+      },
+      "rt_direct_ridge_pred": {
+        "mae_yuan_per_mwh": 145.50060095595967,
+        "rmse_yuan_per_mwh": 176.1903371576541,
+        "bias_yuan_per_mwh": 17.65793878485757,
+        "sample_count": 160
+      },
+      "rt_global_ensemble_pred": {
+        "mae_yuan_per_mwh": 131.58455602807717,
+        "rmse_yuan_per_mwh": 170.47651447870362,
+        "bias_yuan_per_mwh": -10.721395364883353,
+        "sample_count": 160
+      },
+      "rt_global_bias_corrected_pred": {
+        "mae_yuan_per_mwh": 131.85177423180787,
+        "rmse_yuan_per_mwh": 170.88967042700864,
+        "bias_yuan_per_mwh": -13.459499506463846,
+        "sample_count": 160
+      },
+      "rt_segment_ensemble_pred": {
+        "mae_yuan_per_mwh": 131.51506242091384,
+        "rmse_yuan_per_mwh": 168.60109109481152,
+        "bias_yuan_per_mwh": -9.377333316518634,
+        "sample_count": 160
+      },
+      "rt_segment_bias_corrected_pred": {
+        "mae_yuan_per_mwh": 134.66807161091407,
+        "rmse_yuan_per_mwh": 171.48934906129017,
+        "bias_yuan_per_mwh": -14.482488915384147,
+        "sample_count": 160
+      }
+    },
+    "evening": {
+      "rt_from_spread_lightgbm_l1_pred": {
+        "mae_yuan_per_mwh": 46.679049522907135,
+        "rmse_yuan_per_mwh": 65.67205075166527,
+        "bias_yuan_per_mwh": 15.045046998379318,
+        "sample_count": 128
+      },
+      "rt_from_spread_xgboost_l1_pred": {
+        "mae_yuan_per_mwh": 46.642046074174345,
+        "rmse_yuan_per_mwh": 64.27390812599381,
+        "bias_yuan_per_mwh": 13.648227490864693,
+        "sample_count": 128
+      },
+      "rt_from_spread_xgboost_l2_pred": {
+        "mae_yuan_per_mwh": 47.76455493687094,
+        "rmse_yuan_per_mwh": 66.91442075832981,
+        "bias_yuan_per_mwh": 10.478194470897316,
+        "sample_count": 128
+      },
+      "rt_from_spread_extra_trees_pred": {
+        "mae_yuan_per_mwh": 53.15906772087585,
+        "rmse_yuan_per_mwh": 69.73782339247771,
+        "bias_yuan_per_mwh": 12.425635765731291,
+        "sample_count": 128
+      },
+      "rt_from_spread_ridge_pred": {
+        "mae_yuan_per_mwh": 59.11730970045603,
+        "rmse_yuan_per_mwh": 73.593564922656,
+        "bias_yuan_per_mwh": 4.974871916205801,
+        "sample_count": 128
+      },
+      "rt_direct_lightgbm_l1_pred": {
+        "mae_yuan_per_mwh": 52.30719098680859,
+        "rmse_yuan_per_mwh": 70.00027167267527,
+        "bias_yuan_per_mwh": 6.901411744894677,
+        "sample_count": 128
+      },
+      "rt_direct_xgboost_l1_pred": {
+        "mae_yuan_per_mwh": 53.760077267169954,
+        "rmse_yuan_per_mwh": 71.06960613981036,
+        "bias_yuan_per_mwh": 7.68235166501999,
+        "sample_count": 128
+      },
+      "rt_direct_xgboost_l2_pred": {
+        "mae_yuan_per_mwh": 52.828377746582035,
+        "rmse_yuan_per_mwh": 66.79940127449314,
+        "bias_yuan_per_mwh": 1.9932059211730964,
+        "sample_count": 128
+      },
+      "rt_direct_extra_trees_pred": {
+        "mae_yuan_per_mwh": 51.18757683094171,
+        "rmse_yuan_per_mwh": 67.41510378903887,
+        "bias_yuan_per_mwh": 14.335197397480929,
+        "sample_count": 128
+      },
+      "rt_direct_ridge_pred": {
+        "mae_yuan_per_mwh": 60.881801079163125,
+        "rmse_yuan_per_mwh": 79.1512823262307,
+        "bias_yuan_per_mwh": 7.547501676332068,
+        "sample_count": 128
+      },
+      "rt_global_ensemble_pred": {
+        "mae_yuan_per_mwh": 50.616100628974294,
+        "rmse_yuan_per_mwh": 67.17566679074012,
+        "bias_yuan_per_mwh": 11.243891901974095,
+        "sample_count": 128
+      },
+      "rt_global_bias_corrected_pred": {
+        "mae_yuan_per_mwh": 51.12113311603385,
+        "rmse_yuan_per_mwh": 67.73381338660303,
+        "bias_yuan_per_mwh": 8.505787760393602,
+        "sample_count": 128
+      },
+      "rt_segment_ensemble_pred": {
+        "mae_yuan_per_mwh": 49.943604765606494,
+        "rmse_yuan_per_mwh": 67.25662718993749,
+        "bias_yuan_per_mwh": 14.185704495242653,
+        "sample_count": 128
+      },
+      "rt_segment_bias_corrected_pred": {
+        "mae_yuan_per_mwh": 50.673081467112354,
+        "rmse_yuan_per_mwh": 67.94503332500528,
+        "bias_yuan_per_mwh": 9.087028228126893,
+        "sample_count": 128
+      }
+    }
+  },
+  "leakage_controls": [
+    "Every base-model fold trains only on market dates before its target day.",
+    "Target-day DA is used only in the explicitly post-clearing scenario.",
+    "Rolling ensemble weights and bias use only the preceding calibration window.",
+    "No target-day RT price or spread is used as an input."
+  ],
+  "status": "exploratory on a previously inspected test interval; confirm on later unseen dates",
+  "period": {
+    "start": "2026-06-15",
+    "end": "2026-06-30"
+  },
+  "sample_count": 384,
+  "data_coverage": {
+    "price_rows": 4344,
+    "price_start": "2026-01-01",
+    "price_end": "2026-06-30",
+    "weather_rows": 4368,
+    "weather_start": "2026-01-01",
+    "weather_end": "2026-07-01",
+    "weather_complete_days": 62,
+    "power_complete_days": 182,
+    "power_files": [
+      "D:\\电力实习\\github_upload_shandong_price_model\\data\\山东省-电源出力-总览-电源出力-实际出力-（2026-01-01_2026-01-31）.xlsx",
+      "D:\\电力实习\\github_upload_shandong_price_model\\data\\山东省-电源出力-总览-电源出力-实际出力-（2026-02-01_2026-02-28）.xlsx",
+      "D:\\电力实习\\github_upload_shandong_price_model\\data\\山东省-电源出力-总览-电源出力-实际出力-（2026-03-01_2026-03-31）.xlsx",
+      "D:\\电力实习\\github_upload_shandong_price_model\\data\\山东省-电源出力-总览-电源出力-预测出力-（2026-04-01_2026-04-30）.xlsx",
+      "D:\\电力实习\\github_upload_shandong_price_model\\data\\山东省-电源出力-总览-电源出力-预测出力-（2026-05-01_2026-05-31）.xlsx",
+      "D:\\电力实习\\github_upload_shandong_price_model\\data\\山东省-电源出力-总览-电源出力-预测出力-（2026-06-01_2026-06-30）.xlsx"
+    ],
+    "weather_assumption": "Target-day workbook values are treated as pre-market weather forecasts; publication timestamps are absent.",
+    "power_assumption": "April-June dispatch files are treated as pre-market forecasts; publication timestamps are absent."
+  }
+}

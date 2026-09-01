@@ -1,0 +1,28 @@
+{
+  "output_dir": "outputs\\repro_xgboost",
+  "forecast_date": "2026-07-01",
+  "forecast_rows": 24,
+  "backtest": {
+    "day_ahead": {
+      "mae_yuan_per_mwh": 47.59318387268345,
+      "rmse_yuan_per_mwh": 64.64302127916437,
+      "bias_yuan_per_mwh": 13.272404623602052,
+      "sample_count": 384
+    },
+    "real_time": {
+      "mae_yuan_per_mwh": 96.53820363192703,
+      "rmse_yuan_per_mwh": 134.55244297597253,
+      "bias_yuan_per_mwh": 13.792370438253428,
+      "sample_count": 384
+    },
+    "spread": {
+      "mae_yuan_per_mwh": 88.20209940766877,
+      "rmse_yuan_per_mwh": 125.43410575941385,
+      "bias_yuan_per_mwh": 0.5199658146513771,
+      "sample_count": 384
+    },
+    "spread_direction_accuracy": 0.5885416666666666
+  },
+  "main_backend": "xgboost",
+  "temporal_residual_backend": "tcn"
+}
